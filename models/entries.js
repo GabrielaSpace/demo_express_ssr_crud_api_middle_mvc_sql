@@ -1,11 +1,6 @@
 const { Pool } = require('pg');
-const queries = require('./queries')
-const pool = new Pool({
-    host: process.env.HOST,
-    user: process.env.USER,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD
-})
+const queries = require('../queries/queries_entries_pg')
+const pool = require('../utils/db_pgsql');
 
 // GET
 const getEntriesByEmail = async (email) => {
@@ -106,27 +101,4 @@ const entries = {
 
 module.exports = entries;
 
-
-// Pruebas
-/*
-    getEntriesByEmail("birja@thebridgeschool.es")
-    .then(data=>console.log(data))
-*/
-
-/*
-getAllEntries()
-.then(data=>console.log(data))
-*/
-
-/*
-let newEntry = {
-    title: "Se acabaron las mandarinas de TB",
-    content: "Corren rumores de que papa noel tenía un saco vacio y lo llenó",
-    email: "guillermu@thebridgeschool.es",
-    category: "sucesos"
-}
-
-createEntry(newEntry)
-    .then(data => console.log(data))
-    */
 

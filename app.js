@@ -1,8 +1,8 @@
 const express = require('express')
 const cowsay = require('cowsay')
-
 const calculator = require('./utils/calculator')
 const error404 = require('./middlewares/error404')
+const morgan = require('morgan')
 
 // Módulos de Rutas
 const booksRoutes = require('./routes/booksRoutes')

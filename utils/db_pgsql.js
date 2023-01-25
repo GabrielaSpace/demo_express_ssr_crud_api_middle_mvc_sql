@@ -9,4 +9,15 @@ const db = mongoose.connection;
 db.on("error", error => console.log(error));
 db.once("open", () => console.log("connection to MongoDB established"));
 
+const { Pool } = require('pg')
+
+const pool = new Pool({
+    host: process.env.HOST,
+    user: process.env.DBUSER,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD
+})
+
+module.exports = pool;
+
 module.exports = mongoose;

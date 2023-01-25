@@ -1,11 +1,7 @@
 const { Pool } = require('pg');
-const queries = require('./queries')
-const pool = new Pool({
-    host: process.env.HOST,
-    user: process.env.USER,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD
-})
+const queries = require('../queries/queries_authors_pg')
+const pool = require('../utils/db_pgsql');
+
 
 // GET
 const getAuthorsByEmail = async (email) => {
